@@ -1,6 +1,7 @@
 # **PROJECT INDIVIDU PBO**
 
-**NAMA  : Mahda Annisa**
+**Nama  : Mahda Annisa**
+
 **NPM   : 2408107010036** 
 
 # **Sistem Manajemen Penumpang Bus Trans Koetaradja**
