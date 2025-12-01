@@ -24,6 +24,7 @@ Setiap penumpang wajib membayar ongkos bus Rp 2000, dan saldo awal setiap penump
 **Struktur Program**
 
 Program terdiri dari 3 class utama
+
 **1. Penumpang.java**
 
 Representasi satu individu penumpang dengan atribut:
