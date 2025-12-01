@@ -5,7 +5,9 @@
 **NPM   : 2408107010036** 
 
 # **Sistem Manajemen Penumpang Bus Trans Koetaradja**
+
 **Deskripsi Proyek**
+
 Program ini merupakan simulasi Sistem Manajemen Penumpang Bus yang dibuat menggunakan bahasa pemrograman Java, sebagai pemenuhan tugas proyek individu.
 Aplikasi ini mensimulasikan proses:
 - Naik penumpang
@@ -20,8 +22,10 @@ Program mematuhi aturan tempat duduk Bus Trans Koetaradja:
 Setiap penumpang wajib membayar ongkos bus Rp 2000, dan saldo awal setiap penumpang adalah Rp 10.000.
 
 **Struktur Program**
+
 Program terdiri dari 3 class utama
 **1. Penumpang.java**
+
 Representasi satu individu penumpang dengan atribut:
 - id
 - nama
@@ -31,6 +35,7 @@ Representasi satu individu penumpang dengan atribut:
 Class ini menerapkan konsep Encapsulation untuk menjaga data tetap aman.
 
 **2. Bus.java**
+
 Class inti yang mengatur seluruh logika sistem:
 - Menyimpan daftar penumpang dalam 3 kategori (prioritas, biasa, berdiri)
 - Mengecek kapasitas
@@ -44,6 +49,7 @@ Class ini menggunakan:
 - Abstraction untuk menyembunyikan detail logika penempatan penumpang
 
 **3. TestBus.java**
+
 Program utama (main program) berbasis menu, yang berfungsi untuk:
 - Membaca input pengguna
 - Menampilkan menu interaktif
@@ -88,6 +94,7 @@ Setiap kali penumpang naik.
 Menu khusus “Lihat Total Pendapatan” disediakan di TestBus.
 
 **Cara Menjalankan Program**
+
 - Menggunakan VS Code
 - Pastikan Java JDK terinstall
 - Buka folder proyek di VS Code
