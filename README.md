@@ -21,7 +21,7 @@ Setiap penumpang wajib membayar ongkos bus Rp 2000, dan saldo awal setiap penump
 
 **Struktur Program**
 Program terdiri dari 3 class utama
-1. Penumpang.java
+**1. Penumpang.java**
 Representasi satu individu penumpang dengan atribut:
 - id
 - nama
@@ -30,7 +30,7 @@ Representasi satu individu penumpang dengan atribut:
 - saldo
 Class ini menerapkan konsep Encapsulation untuk menjaga data tetap aman.
 
-2. Bus.java
+**2. Bus.java**
 Class inti yang mengatur seluruh logika sistem:
 - Menyimpan daftar penumpang dalam 3 kategori (prioritas, biasa, berdiri)
 - Mengecek kapasitas
@@ -43,7 +43,7 @@ Class ini menggunakan:
 - Iterator untuk operasi penghapusan data
 - Abstraction untuk menyembunyikan detail logika penempatan penumpang
 
-3. TestBus.java
+**3. TestBus.java**
 Program utama (main program) berbasis menu, yang berfungsi untuk:
 - Membaca input pengguna
 - Menampilkan menu interaktif
@@ -81,6 +81,7 @@ Prioritas jika:
 - Jika kursi penuh → berdiri
 
 **Perhitungan Pendapatan**
+
 Pendapatan bus dihitung secara otomatis:
 totalPendapatan += 2000
 Setiap kali penumpang naik.
