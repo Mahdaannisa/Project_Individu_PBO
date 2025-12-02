@@ -220,4 +220,43 @@ public class Bus {
         return sb.toString();
     }
 
+    //  METHOD TOSTRING UNTUK LAPORAN KONDISI BUS
+
+    /**
+     * Menampilkan laporan lengkap kondisi bus saat ini.
+     * Output meliputi:
+     * - Daftar penumpang biasa
+     * - Daftar penumpang prioritas
+     * - Daftar penumpang berdiri
+     * - Jumlah total penumpang
+     *
+     * Digunakan oleh TestBus untuk menampilkan data secara rapi.
+     */
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+
+        sb.append("\n--- DATA PENUMPANG BUS TRANS KOETARADJA  ---\n");
+
+        sb.append("Penumpang Biasa (Kursi: ")
+          .append(penumpangBiasa.size()).append("/16): ")
+          .append(listToString(penumpangBiasa)).append("\n");
+
+        sb.append("Penumpang Prioritas (Kursi: ")
+          .append(penumpangPrioritas.size()).append("/4): ")
+          .append(listToString(penumpangPrioritas)).append("\n");
+
+        sb.append("Penumpang Berdiri (Total: ")
+          .append(penumpangBerdiri.size()).append("/20): ")
+          .append(listToString(penumpangBerdiri)).append("\n");
+
+        sb.append("Jumlah Semua Penumpang: ")
+          .append(getTotalPenumpang()).append(" (Max: 40)\n");
+
+        sb.append("--------------------------\n");
+        sb.append("===\n");
+
+        return sb.toString();
+    }
+}
 
