@@ -48,3 +48,55 @@ public class Bus {
      */
     private int totalPendapatan;
 
+    //  CONSTRUCTOR
+
+    /**
+     * Constructor Bus.
+     * Menginisialisasi semua ArrayList agar siap digunakan.
+     * Juga mengatur nilai pendapatan awal = 0.
+     */
+    public Bus() {
+        penumpangPrioritas = new ArrayList<>();
+        penumpangBiasa = new ArrayList<>();
+        penumpangBerdiri = new ArrayList<>();
+        totalPendapatan = 0;
+    }
+
+    //  METHOD GETTER INFORMASI JUMLAH
+
+    /**
+     * Mengembalikan jumlah penumpang pada kursi biasa.
+     */
+    public int getJumlahPenumpangBiasa() { 
+        return penumpangBiasa.size(); 
+    }
+
+    /**
+     * Mengembalikan jumlah penumpang pada kursi prioritas.
+     */
+    public int getJumlahPenumpangPrioritas() { 
+        return penumpangPrioritas.size(); 
+    }
+
+    /**
+     * Mengembalikan jumlah penumpang di area berdiri.
+     */
+    public int getJumlahPenumpangBerdiri() { 
+        return penumpangBerdiri.size(); 
+    }
+
+    /**
+     * Mengembalikan total seluruh penumpang yang ada di dalam bus.
+     */
+    public int getTotalPenumpang() {
+        return getJumlahPenumpangPrioritas() +
+               getJumlahPenumpangBiasa() +
+               getJumlahPenumpangBerdiri();
+    }
+
+    /**
+     * Mengembalikan total pendapatan bus.
+     */
+    public int getTotalPendapatan() {
+        return totalPendapatan;
+    }
