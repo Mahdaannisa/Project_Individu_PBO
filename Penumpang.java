@@ -28,3 +28,18 @@ public class Penumpang {
         this.hamil = hamil;
         this.saldo = 10000;  // saldo awal
     }
+
+    // ===== GETTER UNTUK AKSES DATA =====
+    public int getID() { return id; }
+    public String getNama() { return nama; }
+    public int getUmur() { return umur; }
+    public boolean getHamil() { return hamil; }
+    public int getSaldo() { return saldo; }
+
+    /**
+     * Menambah saldo penumpang.
+     * Digunakan ketika penumpang ingin top up.
+     */
+    public void tambahSaldo(int jumlah) {
+        if (jumlah > 0) saldo += jumlah;
+    }
