@@ -107,4 +107,84 @@ public class TestBus {
                     hamil
                 );
 
+                /**
+                 * Memanggil method naikkanPenumpang() dari class Bus.
+                 * Method akan mengatur posisi penumpang (prioritas, biasa, berdiri)
+                 * berdasarkan aturan yang berlaku.
+                 */
+                if (bus.naikkanPenumpang(p)) {
+
+                    System.out.println("Penumpang berhasil ditambahkan!");
+
+                    // Menampilkan sisa saldo penumpang setelah dipotong ongkos
+                    System.out.println("Sisa saldo penumpang : Rp " + p.getSaldo());
+
+                    // Menampilkan kondisi penumpang secara keseluruhan
+                    System.out.print(bus.toString());
+                } else {
+                    System.out.println("Penumpang gagal ditambahkan!");
+                }
+            }
+
+            // 2. MENURUNKAN PENUMPANG
+            else if (pilih == 2) {
+
+                System.out.println("");
+
+                // Input nama penumpang yang ingin diturunkan
+                System.out.print("Nama    : ");
+                String nama = in.nextLine();
+
+                /**
+                 * Memanggil metode turunkanPenumpang() dari Bus.
+                 * Metode mencari nama pada semua kategori (prioritas, biasa, berdiri).
+                 */
+                if (bus.turunkanPenumpang(nama)) {
+                    System.out.println("Penumpang berhasil turun!");
+                } else {
+                    System.out.println("Penumpang tidak ditemukan!");
+                }
+
+                // Menampilkan kondisi bus setelah penumpang turun
+                System.out.print(bus.toString());
+            }
+
+            // 3. LIHAT PENUMPANG
+            else if (pilih == 3) {
+
+                /**
+                 * Menampilkan seluruh daftar penumpang beserta jumlah
+                 * pada tiap kategori (prioritas, biasa, berdiri).
+                 */
+                System.out.print(bus.toString());
+            }
+
+            // 4. LIHAT TOTAL PENDAPATAN
+            else if (pilih == 4) {
+
+                /**
+                 * Menampilkan total pendapatan bus.
+                 * Pendapatan didapat dari jumlah penumpang × ongkos 2000.
+                 */
+                System.out.println("\n--- Total Pendapatan Bus ---");
+                System.out.println("Total Pendapatan : Rp " + bus.getTotalPendapatan());
+                System.out.println("=============================\n");
+            }
+
+            // 0. KELUAR PROGRAM
+            else if (pilih == 0) {
+                System.out.println("Program selesai.");
+                break;
+            }
+
+            // PILIHAN DI LUAR 0–4
+            else {
+                System.out.println("Pilihan tidak tersedia.\n");
+            }
+        }
+
+        in.close(); // menutup scanner agar tidak terjadi memory leak
+    }
+}
+
 
