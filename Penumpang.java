@@ -43,3 +43,27 @@ public class Penumpang {
     public void tambahSaldo(int jumlah) {
         if (jumlah > 0) saldo += jumlah;
     }
+
+    /**
+     * Memotong saldo ketika penumpang membayar ongkos bus.
+     */
+    public void kurangiSaldo(int ongkos) {
+        saldo -= ongkos;
+    }
+
+    /**
+     * Menentukan apakah penumpang termasuk kategori prioritas.
+     * Prioritas: umur < 10, umur > 60, atau sedang hamil.
+     */
+    public boolean isPrioritas() {
+        return umur < 10 || umur > 60 || hamil == true;
+    }
+
+    /**
+     * Representasi penumpang saat diprint → hanya namanya.
+     */
+    @Override
+    public String toString() {
+        return nama;
+    }
+}
