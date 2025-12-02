@@ -100,3 +100,5 @@ public class Bus {
     public int getTotalPendapatan() {
         return totalPendapatan;
     }
+
+    
