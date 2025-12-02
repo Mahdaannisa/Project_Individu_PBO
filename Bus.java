@@ -101,4 +101,123 @@ public class Bus {
         return totalPendapatan;
     }
 
-    
+    //  METHOD UNTUK MENAIKKAN PENUMPANG
+
+    /**
+     * Method ini bertanggung jawab untuk:
+     * - Mengecek saldo penumpang
+     * - Mengecek kapasitas bus
+     * - Memotong saldo penumpang & menambah pendapatan bus
+     * - Menentukan kategori tempat duduk (prioritas → biasa → berdiri)
+     *
+     * Mengembalikan true jika penumpang berhasil naik.
+     * Mengembalikan false jika gagal.
+     */
+    public boolean naikkanPenumpang(Penumpang p) {
+
+        // 1. Validasi saldo
+        if (p.getSaldo() < ONGKOS_BUS) {
+            System.out.println("Saldo tidak cukup!");
+            return false;
+        }
+
+        // 2. Validasi kapasitas total bus
+        if (getTotalPenumpang() >= 40) {
+            System.out.println("Bus sudah penuh!");
+            return false;
+        }
+
+        // 3. Potong saldo penumpang dan tambahkan ke pendapatan bus
+        p.kurangiSaldo(ONGKOS_BUS);
+        totalPendapatan += ONGKOS_BUS;
+
+        // 4. Jika penumpang prioritas dan masih ada kursi prioritas
+        if (p.isPrioritas() && penumpangPrioritas.size() < 4) {
+            penumpangPrioritas.add(p);
+            return true;
+        }
+
+        // 5. Jika kursi biasa masih tersedia
+        if (penumpangBiasa.size() < 16) {
+            penumpangBiasa.add(p);
+            return true;
+        }
+
+        // 6. Jika kursi habis → masukkan ke area berdiri
+        if (penumpangBerdiri.size() < 20) {
+            penumpangBerdiri.add(p);
+            return true;
+        }
+
+        // Tidak seharusnya terjadi karena kapasitas 40 sudah dicek di atas
+        return false;
+    }
+
+    //  METHOD MENURUNKAN PENUMPANG
+
+    /**
+     * Menurunkan penumpang berdasarkan nama.
+     *
+     * Pencarian dilakukan pada:
+     * - penumpang prioritas
+     * - penumpang biasa
+     * - penumpang berdiri
+     *
+     * Menggunakan Iterator agar aman saat menghapus objek dari ArrayList
+     * ketika proses iterasi berlangsung (menghindari ConcurrentModificationException).
+     */
+    public boolean turunkanPenumpang(String nama) {
+
+        // Cek kategori prioritas terlebih dahulu
+        Iterator<Penumpang> it = penumpangPrioritas.iterator();
+        while (it.hasNext()) {
+            if (it.next().getNama().equalsIgnoreCase(nama)) {
+                it.remove();
+                return true;
+            }
+        }
+
+        // Cek kategori penumpang biasa
+        it = penumpangBiasa.iterator();
+        while (it.hasNext()) {
+            if (it.next().getNama().equalsIgnoreCase(nama)) {
+                it.remove();
+                return true;
+            }
+        }
+
+        // Cek kategori penumpang berdiri
+        it = penumpangBerdiri.iterator();
+        while (it.hasNext()) {
+            if (it.next().getNama().equalsIgnoreCase(nama)) {
+                it.remove();
+                return true;
+            }
+        }
+
+        return false; // penumpang tidak ditemukan pada semua kategori
+    }
+
+    //  METHOD UNTUK MENAMPILKAN LIST PENUMPANG
+
+    /**
+     * Mengubah isi ArrayList penumpang menjadi sebuah string.
+     * Jika list kosong, kembalikan "<kosong>".
+     *
+     * Digunakan untuk menampilkan laporan bus secara rapi.
+     */
+    public String listToString(ArrayList<Penumpang> list) {
+        if (list.isEmpty()) return "<kosong>";
+
+        StringBuilder sb = new StringBuilder();
+
+        for (Penumpang p : list) {
+            sb.append(p.getNama()).append(", ");
+        }
+
+        // Menghapus koma terakhir ", "
+        sb.setLength(sb.length() - 2);
+        return sb.toString();
+    }
+
+
